@@ -30,7 +30,7 @@ public class SearchController {
     // TODO #3 - Create a handler to process a search request and render the updated search view.
 
     @PostMapping("results")
-    public ArrayList<ArrayList<Job>> displaySearchResults(Model model, @RequestParam String searchType, @RequestParam String searchTerm) {
+    public String displaySearchResults(Model model, @RequestParam String searchType, @RequestParam String searchTerm) {
 
         ArrayList<ArrayList<Job>> jobs = new ArrayList<>();
 
@@ -41,7 +41,7 @@ public class SearchController {
         }
         model.addAttribute("jobs", jobs);
         model.addAttribute("columns", columnChoices);
-        return jobs;
+        return "search";
     }
 
 }
